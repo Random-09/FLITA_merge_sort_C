@@ -1,7 +1,6 @@
 #include <string.h>
 #include "merge_sort.h"
 
-#define BILLION 1000000000.0
 #define DOUBLE_LEN 17
 #define BUFFER 100
 

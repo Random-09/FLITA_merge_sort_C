@@ -11,7 +11,7 @@
 
 void merge(int *array, int left, int middle, int right);
 
-void mergeSort(int *array, int left, int right);
+void mergeSort(double *array, int left, int right);
 
 int getLen(FILE *filePtr);
 

@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
     FILE *filePtr;
     filePtr = fopen(filePath, "r");
     if (filePtr == NULL) {
-        printf("Error opening file\n");
+        puts("Error opening file");
         exit(EXIT_FAILURE);
     }
     int len = getLen(filePtr);
