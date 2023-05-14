@@ -3,10 +3,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 
-void parseFile(FILE *filePtr);
+#define DOUBLE_LEN 17
+#define BUFFER 100
 
+void merge(int *array, int left, int middle, int right);
 
+void mergeSort(int *array, int left, int right);
+
+int getLen(FILE *filePtr);
+
+double *parse(FILE *filePtr, int len);
 
 #endif
