@@ -9,7 +9,7 @@
 #define DOUBLE_LEN 17
 #define BUFFER 100
 
-void merge(int *array, int left, int middle, int right);
+void merge(double *array, int left, int middle, int right);
 
 void mergeSort(double *array, int left, int right);
 

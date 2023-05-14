@@ -4,7 +4,7 @@
 #define DOUBLE_LEN 17
 #define BUFFER 100
 
-void merge(int *array, int left, int middle, int right) {
+void merge(double *array, int left, int middle, int right) {
     int i, j, k;
     int n1 = middle - left + 1;
     int n2 = right - middle;
@@ -41,7 +41,7 @@ void merge(int *array, int left, int middle, int right) {
     free(rightArray);
 }
 
-void mergeSort(int *array, int left, int right) {
+void mergeSort(double *array, int left, int right) {
     if (left < right) {
         int middle = left + (right - left) / 2;
         mergeSort(array, left, middle);
