@@ -81,3 +81,9 @@ double *parse(FILE *filePtr, int len) {
     }
     return array;
 }
+
+void writeToFile(double *array, int len, FILE *outputFilePtr) {
+    for (int i = 0; i < len; i++) {
+        fprintf(outputFilePtr, "%F\n", array[i]);
+    }
+}

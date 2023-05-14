@@ -6,27 +6,31 @@
 #define BILLION 1000000000.0
 
 int main(int argc, char **argv) {
-    if (argc != 2) {
+    if (argc != 3) {
         puts("Wrong number of arguments");
         exit(EXIT_FAILURE);
     }
-    char *filePath = argv[1];
-    FILE *filePtr;
-    filePtr = fopen(filePath, "r");
-    if (filePtr == NULL) {
+    char *inputfilePath = argv[1];
+    char *outputfilePath = argv[2];
+    FILE *inputFilePtr;
+    FILE *outputFilePtr;
+    inputFilePtr = fopen(inputfilePath, "r");
+    if (inputFilePtr == NULL) {
         puts("Error opening file");
         exit(EXIT_FAILURE);
     }
-    int len = getLen(filePtr);
-    double *array = parse(filePtr, len);
+    int len = getLen(inputFilePtr);
+    double *array = parse(inputFilePtr, len);
+    fclose(inputFilePtr);
     struct timespec start, end;
     clock_gettime(CLOCK_REALTIME, &start);
     mergeSort(array, 0, len - 1);
     clock_gettime(CLOCK_REALTIME, &end);
-    long double time_spent = (long double) (end.tv_sec - start.tv_sec) +
-                             (end.tv_nsec - start.tv_nsec) / BILLION;
-    printf("\nTime taken to sort %d numbers: %Lf seconds\n", len, time_spent);
+    double time_spent = (double) (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / BILLION;
+    printf("\nTime taken to sort %d numbers: %F seconds\n", len, time_spent);
+    outputFilePtr = fopen(outputfilePath, "w");
+    writeToFile(array, len, outputFilePtr);
     free(array);
-    fclose(filePtr);
+    fclose(outputFilePtr);
     return EXIT_SUCCESS;
 }

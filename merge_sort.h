@@ -17,4 +17,6 @@ int getLen(FILE *filePtr);
 
 double *parse(FILE *filePtr, int len);
 
+void writeToFile(double *array, int count, FILE *outputFilePtr);
+
 #endif
